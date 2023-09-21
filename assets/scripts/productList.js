@@ -8,28 +8,28 @@ class ProductList{
     }
 
     
-    // APIからデータを取得するメソッド
+    // get all products info from API
     async fetchProducts() {
         try {
             const response = await fetch(this.apiUrl);
             if (!response.ok) {
-                throw new Error('APIからデータを取得できませんでした。');
+                throw new Error('cannot get information from API');
             }
             const data = await response.json();
-            this.products = data; // データをクラスのプロパティに設定
+            this.products = data; // set data into this.products property
             
         } catch (error) {
-            console.error('エラー:', error);
+            console.error('Error:', error);
         }
     }
 
     render(){
 
-        // 商品リストを含む <ul> 要素を作成
+        // create <ul> which includes product lists
         const productListElement = document.createElement('ul');
         productListElement.classList.add('product-list');
 
-        // 商品リストをループして各商品を描画
+        // create each product list
         this.products.forEach((productData) => {
             const productItem = new ProductItem(productData,this.app);
             const productItemElement = productItem.render();

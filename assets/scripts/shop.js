@@ -6,21 +6,19 @@ class Shop {
     }
 
     render() {
-        // ProductListの要素を取得し、商品リストを描画
+        // get shoppingCart
+        const shoppingCartElement = this.shoppingCart.render();
+        // get ProductionList
         const productListElement = this.productList.render();
 
-        // ShoppingCartの要素を取得し、ショッピングカートを描画
-        const shoppingCartElement = this.shoppingCart.render();
-
-        // ショップ全体のコンテナ要素を作成
+        // create shop container
         const shopContainer = document.createElement('div');
         shopContainer.classList.add('shop-container');
 
-        // 商品リストとショッピングカートをコンテナに追加
-        shopContainer.appendChild(productListElement);
+        // add shoppingCart & productionList
         shopContainer.appendChild(shoppingCartElement);
-
-        return shopContainer; // ショップ全体の要素を返す
+        shopContainer.appendChild(productListElement);
+        return shopContainer; 
     }
 }
 

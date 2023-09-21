@@ -1,32 +1,7 @@
-import Product from './product.js';
-import ProductItem from './productItem.js';
 import ProductList from './productList.js';
 import ShoppingCart from './shoppingCart.js';
 import Shop from './shop.js';
 
-// class App {
-//     constructor() {}
-    
-//     async init() {
-//         const shopContainer = document.getElementById('app');
-
-//         const productList = new ProductList('https://fakestoreapi.com/products');
-//         const shoppingCart = new ShoppingCart();
-//         const shop = new Shop(productList, shoppingCart);
-
-//         // 商品データを非同期に取得
-//         await productList.fetchProducts();
-
-        
-//         const shopElement = shop.render();
-//         shopContainer.appendChild(shopElement);
-        
-//     }
-
-//     addProductToCart(product) {
-//         shoppingCart.addItem(product);
-//     }
-// }
 
 class App {
     constructor() {
@@ -37,7 +12,7 @@ class App {
 
     init() {
         const shopContainer = document.getElementById('app');
-        this.shop = new Shop(this.productList, this.shoppingCart,this); // Shop クラスに ProductList と ShoppingCart を渡す
+        this.shop = new Shop(this.productList, this.shoppingCart,this); // send shopCart and productList to shop.
 
         this.productList.fetchProducts().then(() => {
             const shopElement = this.shop.render();
@@ -45,18 +20,12 @@ class App {
         });
     }
 
-    totalUpdate(){
-        // 合計金額を表示する要素を取得
-        const totalElement = document.querySelector('.shopping-cart .total');
-        // テキストコンテンツを更新
-        totalElement.textContent = `合計: $${this.shoppingCart.total}`;
+    //update every elemnt when items are added.
+    update(){
+        this.shoppingCart.setter();
     }
 
-    // countUpadte(id){
-    //     const countElement=document.querySelector(`count-${id}`);
-    //     countElement.textContent=`カートに追加された回数:${}`;
-    // }
-
+    //process of change of each entity when items are added.
     addProductToCart(product) {
         this.shoppingCart.addItem(product);
     }

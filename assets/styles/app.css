@@ -55,6 +55,17 @@ button:active {
   padding: 2rem;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+}
+
+
+
+
+.cart .cart-main-content{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .cart h2 {
@@ -62,6 +73,13 @@ button:active {
   font-size: 1.5rem;
   color: #540075;
 }
+
+
+.cart .cart-items li{
+  font-size: 15px;
+}
+
+
 
 .product-list {
   list-style: none;
