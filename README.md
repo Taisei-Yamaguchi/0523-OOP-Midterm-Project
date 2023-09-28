@@ -134,3 +134,10 @@ Initialize your application by calling the `init` method of `App` class.
 ### Step 7 - Update total amount
 
 Modify your `ShoppingCart` class by adding a new setter method that will update the total amount of the cart everytime that a new product is added to the cart.
+
+
+
+
+
+Google Slide for Presentation
+https://docs.google.com/presentation/d/1ACq1HSaSfcGpVizwzgGL6SmskWnndkvA2AlBBFjhdiw/edit#slide=id.g24776d64cfc_1_5
